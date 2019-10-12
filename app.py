@@ -16,7 +16,7 @@ app = Flask(__name__)
 # Database Setup
 #################################################
 
-client = MongoClient('localhost', 27017)
+client = MongoClient('mongodb://heroku_pwp29vwj:3psjtoh1dpkebpkp4ei777aesnb@ds233258.mlab.com:33258/heroku_pwp29vwj')
 db = client.baseball
 collection = db.players
 
