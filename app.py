@@ -16,10 +16,10 @@ app = Flask(__name__)
 # Database Setup
 #################################################
 
-client = MongoClient('mongodb://heroku_pwp29vwj:3psjtoh1dpkebpkp4ei777aesnb@ds233258.mlab.com:33258/heroku_pwp29vwj')
-db = client.baseball
-collection = db.players
-
+client = MongoClient('mongodb://nick21:Nick21**@ds335678.mlab.com:35678/heroku_s4gpc8qj')
+db = client.heroku_s4gpc8qj
+collection = db.collection
+collections = [i for i in collection.find()]
 
 @app.route("/")
 def index():
@@ -31,17 +31,26 @@ def index():
 def names():
     """Return a list of sample names."""
 
-    names = [i['name'] for i in collection.find()]
+    ids = [i for i in collections[0]['espn_id']]
     # Return a list of the Player names
-    return jsonify(names)
+    return jsonify(ids)
 
+@app.route("/pic_url/<id>")
+def pic_url(id):
+    """Return a photo url of the player."""
 
+    inner_photo = collections[0]['espn_id']
+    picture = inner_photo[id]['photo_url']
+    # Return a list of the Player names
+    return jsonify(picture)
+
+'''
 @app.route("/playerbio/<player>")
 def bio(player):
     """Return the MetaData for a given sample."""
     
     # Create a dictionary entry for each row of metadata information
-    bio = {}
+    #bio = {}
     for result in results:
         sample_metadata["sample"] = result[0]
         sample_metadata["ETHNICITY"] = result[1]
@@ -67,6 +76,6 @@ def samples(sample):
     }
     return jsonify(data)
 
-
+'''
 if __name__ == "__main__":
     app.run()

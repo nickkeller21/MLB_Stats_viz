@@ -1,0 +1,90 @@
+.container {
+  height: auto;
+  border-radius: 25px;
+  padding: 20px;
+ }
+.mlb_player {
+    height: 250px;
+    background:white;
+    border-radius:0px;
+  }
+
+.mlb_analytics {
+    Height: 400px;
+    background: #041E42; 
+    border-radius:25px;
+    padding: 25px,25px;  
+}
+ 
+ .navbar {
+    background-color: #041E42;
+    color: white;
+    height: 56px;
+    padding: 0 32px;
+    width: 100%;
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font-variant: normal;
+    font-size: 18px;
+    } 
+
+  .footer {
+   position: fixed;
+   font-size: 18px;
+   padding-top: 15px;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #041E42;
+   color: white;
+   text-align: center;
+}
+
+  .nav-link {
+  -webkit-font-smoothing: antialiased;
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 15px;
+    font-size: 14px;
+    text-align: center;
+    box-sizing: border-box;
+    opacity: 0.8;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+  }
+
+  .title_header {
+    text-align: center;
+    background-color: #ECECEC;
+    color: black;
+    border: 1px solid black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin:0px,100px,0px,50px;  
+  }
+
+  #color_page_background {
+    background-color:#ECECEC;
+  }
+
+  .see-also {
+    color: #222;
+    margin: 20px 50px 0px;
+    font: 700 14px/1.4 "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.btn-primary {
+  color: white;
+  background-color: #BF0D3E;
+  border: #BF0D3E;
+  position: relative;
+  
+}
+
+.stats_graph {
+  padding: 20px,20px,20px,20px;
+}
+
