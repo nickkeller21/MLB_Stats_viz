@@ -19,7 +19,6 @@ app = Flask(__name__)
 client = MongoClient('mongodb://nick21:Nick21**@ds335678.mlab.com:35678/heroku_s4gpc8qj')
 db = client.heroku_s4gpc8qj
 collection = db.collection
-collections = [i for i in collection.find()]
 
 @app.route("/")
 def index():
@@ -31,16 +30,14 @@ def index():
 def names():
     """Return a list of sample names."""
 
-    ids = [i for i in collections[0]['espn_id']]
+    names = [i['playerName'] for i in collection.find()]
     # Return a list of the Player names
-    return jsonify(ids)
+    return jsonify(names)
 
-@app.route("/pic_url/<id>")
-def pic_url(id):
+@app.route("/pic_url/<name>")
+def pic_url(name):
     """Return a photo url of the player."""
 
-    inner_photo = collections[0]['espn_id']
-    picture = inner_photo[id]['photo_url']
     # Return a list of the Player names
     return jsonify(picture)
 
