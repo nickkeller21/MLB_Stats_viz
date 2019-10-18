@@ -96,7 +96,9 @@ function autocomplete(inp, arr) {
   }
   
   /*An array containing all the country names in the world:*/
-  var players = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua & Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia & Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Central Arfrican Republic","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cuba","Curacao","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kiribati","Kosovo","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Myanmar","Namibia","Nauro","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","North Korea","Norway","Oman","Pakistan","Palau","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre & Miquelon","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Korea","South Sudan","Spain","Sri Lanka","St Kitts & Nevis","St Lucia","St Vincent","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad & Tobago","Tunisia","Turkey","Turkmenistan","Turks & Caicos","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States of America","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];
+  var players = ["Cody Bellinger","Alex Bregman","Mike Trout","Marcus Semien","Justin Verlander","Mike Minor", "Lance Lynn","Jacob deGrom","Christian Yelich","Ketel Marte","Gerrit Cole","Mookie Betts","Matt Chapman","Trevor Story","Anthony Rendon","Stephen Strasburg","George Springer","Josh Donaldson","DJ LeMahieu","Eduardo Rodriguez","Jack Flaherty","Max Scherzer","Nolan Arenado","Max Muncy","Jorge Polanco","Mike Soroka","Patrick Corbin","Lucas Giolito","Sonny Gray","Zack Greinke","Ronald Acuna Jr.","Aaron Judge","Rafael Devers","Xander Bogaerts","Hyun-Jin Ryu","Matt Olson","Charlie Morton","Pete Alonso","Jeff McNeil","Shane Bieber","Javier Baez","Ozzie Albies","Francisco Lindor","Luis Castillo","Kolten Wong","Juan Soto","Yoan Moncada","Michael Brantley","Nick Ahmed","Carlos Santana","Aaron Nola","Kyle Freeland","Jose Ramirez","Blake Snell","Lorenzo Cain","Chris Sale","J.D. Martinez","Andrelton Simmons","Mitch Haniger","Freddie Freeman","Corey Kluber","Trevor Bauer","Manny Machado","Whit Merrifield","Paul Goldschmidt","Mike Clevinger","Jose Altuve","Matt Carpenter","Jed Lowrie","Luis Severino","Aaron Hicks","Jameson Taillon","German Marquez","Justin Turner","David Price","Brandon Nimmo","Jean Segura","Joey Wendle","J.T. Realmuto","Blake Treinen","Didi Gregorius","Giancarlo Stanton","Joey Votto","Gio Gonzalez","Tommy Pham","Carlos Correa","Kris Bryant","Charlie Blackmon","Marcus Stroman","Marcell Ozuna","Justin Upton","Corey Seager","Carlos Carrasco","Byron Buxton","Jonathan Schoop","Kevin Kiermaier","Robbie Ray","Zack Cozart","Brett Gardner","Chris Taylor"];
+  
+  
   
   /*initiate the autocomplete function on the "myInput" element, and pass along the players array as possible autocomplete values:*/
   autocomplete(document.getElementById("myInput"), players);
@@ -106,6 +108,16 @@ function autocomplete(inp, arr) {
   document.getElementById("date").innerHTML = Date();
 
   /*filter csv*/
+  $(document).ready(function(){
+    $("#myInput").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#myTable tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
+
+  /*Table Pagination*/
 
   $(document).ready(function () {
     $('#dtBasicExample').DataTable();
@@ -115,7 +127,7 @@ function autocomplete(inp, arr) {
   // Basic example
 $(document).ready(function () {
   $('#dtBasicExample').DataTable({
-    "paging": false // false to disable pagination (or any other option)
+    "paging": true // false to disable pagination (or any other option)
   });
   $('.dataTables_length').addClass('bs-select');
 });
