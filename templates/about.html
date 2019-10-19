@@ -80,7 +80,7 @@
       <h3>What is WAR?</h3>
       <p>The main stat that we were interested in and are displaying is WAR (Wins Above Replacement). 
         The WAR stat has become increasingly popular and attempts to summarize a player's overall contribution to their team. 
-        The calculations that go into the final number are complex but a detailed explaination can be found on the FanGraphs website.
+        The calculations that go into the final number are complex but a detailed explaination can be found on the <a href="https://library.fangraphs.com/misc/war/"> FanGraphs</a> website.
 
         In it's simplest form the WAR number represents how many wins or losses a player will contribute to a team if they were to replace a player with league average stats. 
         So, for example, if a player has a WAR of 4, it can be said that they have helped their team win an additional 4 games than the team would have won if they had 
@@ -89,9 +89,10 @@
 
       <h3>Data Sources</h3>
          <ul>
-           <li>Selecting Players: To get the list of players that we would be using we used ESPN's Annual WAR Leaders</li>
-           <li>Getting PLayer ID's: This ended up being one of the bigger challenges we faced. Each organization has their own ID's for players, which weren't neccesarily easy to come by. We were able to find a csv from CrunchTimeBasebll which had player ID's from MLB, ESPN, Fangraphs, Yahoo and BaseballReference.</li>
-           <li>Stats: For the majority of our statistics we were able to use the ESPN player ID's to build query urls and pull individual player stats off of each player's ESPN profile page.</li>
+           <li><strong>Selecting Players:</strong>Selecting Players: To get the list of players that we would be using we used<a href="http://www.espn.com/mlb/war/leaders"> ESPN's Annual WAR Leaders</a></li>
+           <li><strong>Getting PLayer ID's:</strong> This ended up being one of the bigger challenges we faced. Each organization has their own ID's for players, which weren't neccesarily easy to come by. We were able to find a csv from CrunchTimeBasebll which had player ID's from MLB, ESPN, Fangraphs, Yahoo and BaseballReference.</li>
+           <li><strong>Stats:</strong> For the majority of our statistics we were able to use the ESPN player ID's to build query urls and pull individual player stats off of each player's ESPN profile page. (<a href="http://www.espn.com/mlb/player/stats/_/id/34886/alex-bregman">Here</a>
+          is an example of Alex Bregman's Stat page)</li>
          </ul>
 
         <h3>Cleaning Data</h3>
