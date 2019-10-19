@@ -9,7 +9,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="../static/css/style.css  ">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  </head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
 <body>
 
 <!-- Header nav bar -->
@@ -49,7 +51,7 @@
       </li> 
      </ul>
      <div>
-      <a href="https://github.com/johncsoltis/project2" target="_blank"><img src="../static/assets/images/guthub_white.png" alt="Git-Hub"   style="width:90.19px;height:40px"></a>  
+      <img src="../static/assets/images/GitHub-Mark/GitHub-Mark/PNG/GitHub-Mark-120px.png" alt="git-hub" style="width:71.19px;height:40px"> 
      </div>
   </div>  
     
@@ -69,7 +71,32 @@
     <div class="container" style="margin-top:30px" id="color_page_background">
     <div class="row">
     <div class="col-sm" style="border-color: black">
-         
+      <h3>Overview</h3>
+      <p>The goal of our project was create a web dashboard that displays career stats for the top 50 WAR leaders in the MLB over the past 5 years.
+
+        The inspiration for this project came from <a href = "https://projects.fivethirtyeight.com/2020-nba-player-projections/">FiveThirtyEight's NBA Player Projections</a> dashboard.
+      </p>
+      <h3>What is WAR?</h3>
+      <p>The main stat that we were interested in and are displaying is WAR (Wins Above Replacement). 
+        The WAR stat has become increasingly popular and attempts to summarize a player's overall contribution to their team. 
+        The calculations that go into the final number are complex but a detailed explaination can be found on the FanGraphs website.
+
+        In it's simplest form the WAR number represents how many wins or losses a player will contribute to a team if they were to replace a player with league average stats. 
+        So, for example, if a player has a WAR of 4, it can be said that they have helped their team win an additional 4 games than the team would have won if they had 
+        replaced that player with an average player.
+      </p>
+
+      <h3>Data Sources</h3>
+         <ul>
+           <li>Selecting Players: To get the list of players that we would be using we used ESPN's Annual WAR Leaders</li>
+           <li>Getting PLayer ID's: This ended up being one of the bigger challenges we faced. Each organization has their own ID's for players, which weren't neccesarily easy to come by. We were able to find a csv from CrunchTimeBasebll which had player ID's from MLB, ESPN, Fangraphs, Yahoo and BaseballReference.</li>
+           <li>Stats: For the majority of our statistics we were able to use the ESPN player ID's to build query urls and pull individual player stats off of each player's ESPN profile page.</li>
+         </ul>
+        <h3>Cleaning Data</h3>
+        <h3>Database Connection</h3>
+        <h3>Website</h3>
+        <h3>Conclusions</h3>
+        <h3>Challenges</h3>
      </div>
   </div>
 </div>

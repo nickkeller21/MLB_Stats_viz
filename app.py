@@ -70,4 +70,5 @@ def stats(player):
 
 
 if __name__ == "__main__":
+    app.config['JSON_SORT_KEYS'] = False
     app.run(port=5001)

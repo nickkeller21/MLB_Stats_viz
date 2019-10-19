@@ -14,27 +14,35 @@ function buildCharts(player) {
 
   // @TODO: Use `d3.json` to fetch the data for the plots
   d3.json(url).then(stats =>{
-    let years = stats['year']
-    let AVGstat = stats['AVG']
-    let HRstat = stats['HR']
-    let OPSstat = stats['OPS']
-    let RBIstat = stats['RBI']
-    let WARstat = stats['WAR']
+    let years = Object.values(stats)[0]
+    let AVGstat = Object.values(stats)[2]
+    let HRstat = Object.values(stats)[3]
+    let OPSstat = Object.values(stats)[4]
+    let RBIstat = Object.values(stats)[5]
+    let WARstat = Object.values(stats)[1]
+
+    let AVGtitle = Object.keys(stats)[2]
+    let HRtitle = Object.keys(stats)[3]
+    let OPStitle = Object.keys(stats)[4]
+    let RBItitle = Object.keys(stats)[5]
+    let WARtitle = Object.keys(stats)[1]
+
+      //// WAR Graph
     var WAR = [{
       x: years,
       y: WARstat,
       type: 'line',
-      name: "WAR",
+      name: WARtitle,
       line: {
-      color: 'rgb(55, 128, 191)',
+      color: 'rgb(0, 0, 137)',
       width: 2
     },
     text: ['player\'s total contributions to their team in one statistic <br>' + 
     'all-inclusive and provides a useful reference point for comparing players'],
     }];
-  
+
     var layout = {
-    title:'Wins Above Replacement (WAR)',
+    title: WARtitle,
     xaxis: {
       title: 'Year',
       dtick: 1
@@ -44,109 +52,94 @@ function buildCharts(player) {
     }
   };
   Plotly.newPlot('player_war', WAR, layout);
+
   //// GRAPH 1
-  var graph1 = [{
-    x: years,
-    y: AVGstat,
-    type: 'line',
-    name: "AVG",
-    line: {
-    color: 'rgb(20, 12, 191)',
-    width: 2
-  },
-  text: ['batting average is determined by dividing a player\'s hits by his<br>' +
-  'total at-bats for a number between zero (shown as .000) and one (1.000)']
-  }];
-  
-
-  var layout1 = {
-  title:'Average Hits at Bat (AVG)',
-  xaxis: {
-    title: 'Year',
-    dtick: 1
-  },
-  yaxis: {
-    title: 'Batting Average (Hits/At-Bat)',
-    range: [0.000, 0.400]
+    var graph1 = [{
+      x: years,
+      y: AVGstat,
+      type: 'line',
+      name: "AVG",
+      line: {
+      color: 'rgb(0, 0, 137)',
+      width: 2
+    }
+    }];
     
-  }
-};
-Plotly.newPlot('table_1', graph1, layout1);
 
-//// GRAPH 2
-var graph2 = [{
-    x: years,
-    y: HRstat,
-    type: 'line',
-    name: "HR",
-    line: {
-    color: 'rgb(20, 12, 191)',
-    width: 2
-  },
-  }];
-  
+    var layout1 = {
+    title: AVGtitle,
+    xaxis: {
+      title: 'Year',
+      dtick: 1
+    }
+  };
+  Plotly.newPlot('table_1', graph1, layout1);
 
-  var layout2 = {
-  title:'Home Runs (HR)',
-  xaxis: {
-    title: 'Year',
-    dtick: 1
-  },
-  yaxis: {
-    title: 'Runs'
-  }
-};
-Plotly.newPlot('table_2', graph2, layout2);
+  //// GRAPH 2
+  var graph2 = [{
+      x: years,
+      y: HRstat,
+      type: 'line',
+      name: HRtitle,
+      line: {
+      color: 'rgb(0, 0, 137)',
+      width: 2
+    },
+    }];
+    
 
-//// GRAPH 3
-var graph3 = [{
-    x: years,
-    y: OPSstat,
-    type: 'line',
-    name: "OPS",
-    line: {
-    color: 'rgb(20, 12, 191)',
-    width: 2
-  },
-  }];
-  
+    var layout2 = {
+    title: HRtitle,
+    xaxis: {
+      title: 'Year',
+      dtick: 1
+    }
+  };
+  Plotly.newPlot('table_2', graph2, layout2);
 
-  var layout3 = {
-  title:'On-Base Plus Slugging (OPS)',
-  xaxis: {
-    title: 'Year',
-    dtick: 1
-  },
-  yaxis: {
-    title: 'On-Base% + Slugging%'
-  }
-};
-Plotly.newPlot('table_3', graph3, layout3);
+  //// GRAPH 3
+  var graph3 = [{
+      x: years,
+      y: OPSstat,
+      type: 'line',
+      name: OPStitle,
+      line: {
+      color: 'rgb(0, 0, 137)',
+      width: 2
+    },
+    }];
+    
 
-//// GRAPH 4
-var graph4 = [{
-    x: years,
-    y: RBIstat,
-    type: 'line',
-    name: "RBI",
-    line: {
-    color: 'rgb(20, 12, 191)',
-    width: 2
-  },
-  }];
-  
+    var layout3 = {
+    title: OPStitle,
+    xaxis: {
+      title: 'Year',
+      dtick: 1
+    }
+  };
+  Plotly.newPlot('table_3', graph3, layout3);
 
-  var layout4 = {
-  title:'Runs Batted In (RBI)',
-  xaxis: {
-    title: 'Year',
-    dtick: 1
-  },
-  yaxis: {
-    title: 'Runs'
-  }
-};
-Plotly.newPlot('table_4', graph4, layout4);
+  //// GRAPH 4
+  var graph4 = [{
+      x: years,
+      y: RBIstat,
+      type: 'line',
+      name: RBItitle,
+      line: {
+      color: 'rgb(0, 0, 137)',
+      width: 2
+    },
+    }];
+    
+
+    var layout4 = {
+    title: RBItitle,
+    xaxis: {
+      title: 'Year',
+      dtick: 1
+    }
+  };
+  Plotly.newPlot('table_4', graph4, layout4);
 
 
 
