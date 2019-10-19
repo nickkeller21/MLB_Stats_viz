@@ -10,7 +10,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
-
+app.config['JSON_SORT_KEYS'] = False
 
 #################################################
 # Database Setup
@@ -70,5 +70,4 @@ def stats(player):
 
 
 if __name__ == "__main__":
-    app.config['JSON_SORT_KEYS'] = False
     app.run(port=5001)
