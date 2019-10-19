@@ -24,11 +24,18 @@ We ended up needing to use multiple sources for our data.
  
  
 ## Cleaning Data
+Luckily the data we were able to pull was pretty clean and didn't have many NULL or NA values. Since we used pandas to webscraped we needed to pull the correct DataFrame and we had to drop a few extra columns from each table before working with them to make the data more readable. 
+
+One unexpected issue that we ran into was that batters and pitchers had different supplemental stats when we scraped them from the ESPN website (i.e. pitchers do not have stats for batting average or OPS and batters do not have stats for ERA or WHIP) so we needed to separate them before we can fully use the data.
+
+One of the biggest obstacle for us trying to get the data from a DataFrame into a dictionary or json format that would allow us to both upload it into MongoDB and be able to query and manupulate it to render the charts we needed on our webpage.
 
 ## Database Connection
+Because we didn't have a need for a relational database and we would prefer a speedier option, we decided to use MongoDB as our database option. Using MongoDB necessitated the use of mLab to connect the database to our Heroku app.  
 
-## Website 
+## Website and Javascript
+Our website layout is Bootstrap based. The additional JavaScript library that we decided to use was JQuery. It was integrated into the search/dropdown selector that allows you to choose which player you would like to visualize. 
 
-## Conclusions
 
-## Challenges
+
+
