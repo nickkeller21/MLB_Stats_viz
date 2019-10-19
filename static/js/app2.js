@@ -42,7 +42,7 @@ function init() {
       console.log(name)
     });
 
-    // Use the first sample from the list to build the initial plots
+    // Use the first player from the list to build the initial plots
     const firstName = names[0];
     buildCharts(firstName);
     buildMetadata(firstName);
@@ -50,7 +50,7 @@ function init() {
 }
 
 function optionChanged(player) {
-  // Fetch new data each time a new sample is selected
+  // Fetch new data
   buildCharts(player);
   buildMetadata(player);
 }

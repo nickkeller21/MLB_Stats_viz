@@ -48,6 +48,7 @@ def stats(player):
     """Create a dictionary entry for each row of stats information"""
     #open dict of that player
     ref = collection.find({'playerName':player})[0]
+    years = [i for i in ref['years']]
     stats= {}
     if ref['position'] == 'pitcher':
         stats['WAR'] = [ref['years'][i]['WAR'] for i in years]
@@ -67,4 +68,4 @@ def stats(player):
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=5001)
