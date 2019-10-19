@@ -1,6 +1,11 @@
 function getPicture(player) {
   let url = `/pic_url/${player}`;
-  let selector = d3.select("#")
+  let selector = d3.select("#player_pic")
+  d3.json(url).then(data =>{
+    console.log(data)
+    selector
+      .attr('src', data)
+  })
 };
 
 
@@ -37,12 +42,14 @@ function init() {
 
     // Use the first player from the list to build the initial plots
     const firstName = names[0];
+    getPicture(firstName);
     buildCharts(firstName);
   });
 };
 
 function optionChanged(player) {
   // Fetch new data
+  getPicture(player);
   buildCharts(player);
 };
 
