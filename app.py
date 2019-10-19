@@ -51,6 +51,7 @@ def stats(player):
     years = [i for i in ref['years']]
     stats= {}
     if ref['position'] == 'pitcher':
+        stats['year'] = [i for i in ref['years']]
         stats['WAR'] = [ref['years'][i]['WAR'] for i in years]
         stats['ERA'] = [ref['years'][i]['ERA'] for i in years]
         stats['WHIP'] = [ref['years'][i]['WHIP'] for i in years]
@@ -58,6 +59,7 @@ def stats(player):
         stats['SO'] = [ref['years'][i]['SO'] for i in years]
         stats['TEAM'] = [ref['years'][i]['TEAM'] for i in years]
     else:
+        stats['year'] = [i for i in ref['years']]
         stats['WAR'] = [ref['years'][i]['WAR'] for i in years]
         stats['AVG'] = [ref['years'][i]['AVG'] for i in years]
         stats['OPS'] = [ref['years'][i]['OPS'] for i in years]

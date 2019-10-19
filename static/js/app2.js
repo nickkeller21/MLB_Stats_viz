@@ -1,14 +1,7 @@
-
-
-    // Use `.html("") to clear any existing metadata
-
-  
-    // Use `Object.entries` to add each key and value pair to the panel
-    // Hint: Inside the loop, you will need to use d3 to append new
-    // tags for each key-value in the metadata.
-
-    // BONUS: Build the Gauge Chart
-    // buildGauge(data.WFREQ);
+function getPicture(player) {
+  let url = `/pic_url/${player}`;
+  let selector = d3.select("#")
+};
 
 
 function buildCharts(player) {
@@ -45,15 +38,13 @@ function init() {
     // Use the first player from the list to build the initial plots
     const firstName = names[0];
     buildCharts(firstName);
-    buildMetadata(firstName);
   });
-}
+};
 
 function optionChanged(player) {
   // Fetch new data
   buildCharts(player);
-  buildMetadata(player);
-}
+};
 
 // Initialize the dashboard
 init();
