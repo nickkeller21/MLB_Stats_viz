@@ -11,6 +11,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <!-- <script src="/static/js/app2.js"></script> -->
  </head>
 <body style="margin-bottom:100px">
   
@@ -76,13 +77,14 @@
         <p>How good will the player you selected perform?</p>
         
         <!--Make sure the form has the autocomplete function switched off:-->
-        <form autocomplete="off" action="#">
+        <!-- <form autocomplete="off" action="#"> -->
           <div class="autocomplete" style="width:300px;">
-            <input class="form-control" id="myInput" type="text" name="myPlayers" placeholder=" MLB Player">
-            <script src="../static/js/app.js"></script>
+            <!-- <input class="form-control" id="myInput" type="text" name="myPlayers" placeholder=" MLB Player"> -->
+            <select id="selDataset" onchange="optionChanged(this.value)"></select>
+            <!--<script src="../static/js/dropdown.js"></script>-->
           </div>
-          <input type="submit" style="margin-top: 20px; border:none; color: white; background-color: #041E42;">
-          </form> 
+          <!-- <input type="submit" style="margin-top: 20px; border:none; color: white; background-color: #041E42;"> -->
+          <!-- </form>  -->
     </div>
   </div>
 </div>
@@ -2315,8 +2317,10 @@
 
             </div>
 </div>
-
-<script type="text/javascript" scr="../static/js/app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="{{ url_for('static', filename='js/app2.js') }}"></script>
+<script type="text/javascript" src = "../static/js/app2.js"></script>
 </body>
 <footer>
   <div class="footer" style="margin-top:160px">

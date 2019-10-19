@@ -25,54 +25,46 @@ def index():
     """Return the homepage."""
     return render_template("index.html")
 
+@app.route("/about")
+def about():
+    """Return the about."""
+    return render_template("about.html")
 
 @app.route("/names")
 def names():
-    """Return a list of sample names."""
-
+    """Return a list of player names."""
     names = [i['playerName'] for i in collection.find()]
-    # Return a list of the Player names
     return jsonify(names)
 
-@app.route("/pic_url/<name>")
-def pic_url(name):
+@app.route("/pic_url/<player>")
+def pic_url(player):
     """Return a photo url of the player."""
-
-    # Return a list of the Player names
+    picture = collection.find({'playerName':player})[0]['imgURL']
     return jsonify(picture)
 
-'''
-@app.route("/playerbio/<player>")
-def bio(player):
-    """Return the MetaData for a given sample."""
-    
-    # Create a dictionary entry for each row of metadata information
-    #bio = {}
-    for result in results:
-        sample_metadata["sample"] = result[0]
-        sample_metadata["ETHNICITY"] = result[1]
-        sample_metadata["GENDER"] = result[2]
-        sample_metadata["AGE"] = result[3]
-        sample_metadata["LOCATION"] = result[4]
-        sample_metadata["BBTYPE"] = result[5]
-        sample_metadata["WFREQ"] = result[6]
 
-    print(sample_metadata)
-    return jsonify(sample_metadata)
+@app.route("/stats/<player>")
+def stats(player):
+    """Create a dictionary entry for each row of stats information"""
+    #open dict of that player
+    ref = collection.find({'playerName':player})[0]
+    stats= {}
+    if ref['position'] == 'pitcher':
+        stats['WAR'] = [ref['years'][i]['WAR'] for i in years]
+        stats['ERA'] = [ref['years'][i]['ERA'] for i in years]
+        stats['WHIP'] = [ref['years'][i]['WHIP'] for i in years]
+        stats['W'] = [ref['years'][i]['W'] for i in years]
+        stats['SO'] = [ref['years'][i]['SO'] for i in years]
+        stats['TEAM'] = [ref['years'][i]['TEAM'] for i in years]
+    else:
+        stats['WAR'] = [ref['years'][i]['WAR'] for i in years]
+        stats['AVG'] = [ref['years'][i]['AVG'] for i in years]
+        stats['OPS'] = [ref['years'][i]['OPS'] for i in years]
+        stats['HR'] = [ref['years'][i]['HR'] for i in years]
+        stats['RBI'] = [ref['years'][i]['RBI'] for i in years]
+        stats['TEAM'] = [ref['years'][i]['TEAM'] for i in years]
+    return jsonify(stats)
 
 
-@app.route("/samples/<sample>")
-def samples(sample):
-    """Return `otu_ids`, `otu_labels`,and `sample_values`."""
-
-    # Format the data to send as json
-    data = {
-        "otu_ids": sample_data.otu_id.values.tolist(),
-        "sample_values": sample_data[sample].values.tolist(),
-        "otu_labels": sample_data.otu_label.tolist(),
-    }
-    return jsonify(data)
-
-'''
 if __name__ == "__main__":
     app.run()
