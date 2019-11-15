@@ -34,6 +34,7 @@ def about():
 def names():
     """Return a list of player names."""
     names = [i['playerName'] for i in collection.find()]
+    names.sort()
     return jsonify(names)
 
 @app.route("/pic_url/<player>")
@@ -67,7 +68,11 @@ def stats(player):
         stats['RBI'] = [ref['years'][i]['RBI'] for i in years]
         stats['TEAM'] = [ref['years'][i]['TEAM'] for i in years]
     return jsonify(stats)
-
+@app.route("/salary/<player>")
+def salary(player):
+    ref = collection.find({'playerName':player})[0]
+    stats = {ref}
+    return jsonify(stats)
 
 if __name__ == "__main__":
     app.run(port=5001)
