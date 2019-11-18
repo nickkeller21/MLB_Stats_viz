@@ -10,7 +10,9 @@ function getPicture(player) {
 
 function getBio(player) {
   let url =`/bio/${player}`
+  d3.select("#player_name").text(player)
   let selector = d3.select("#player_bio")
+  selector.text("")
   d3.json(url).then(data =>{
     let keys = Object.keys(data)
     let values = Object.values(data)
