@@ -18,7 +18,7 @@ app.config['JSON_SORT_KEYS'] = False
 
 client = MongoClient('mongodb://nick21:Nick21**@ds335678.mlab.com:35678/heroku_s4gpc8qj')
 db = client.heroku_s4gpc8qj
-collection = db.collection
+collection = db.baseball
 
 @app.route("/")
 def index():
@@ -43,6 +43,11 @@ def pic_url(player):
     picture = collection.find({'playerName':player})[0]['imgURL']
     return jsonify(picture)
 
+@app.route("/bio/<player>")
+def bio(player):
+    """Return the bio to fill under the pic"""
+    bio = collection.find({'playerName':player})[0]['Bio']
+    return jsonify(bio)
 
 @app.route("/stats/<player>")
 def stats(player):
@@ -75,4 +80,4 @@ def salary(player):
     return jsonify(stats)
 
 if __name__ == "__main__":
-    app.run(port=5001)
+    app.run(debug=True)
