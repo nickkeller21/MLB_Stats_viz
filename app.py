@@ -11,6 +11,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
+FLASK_DEBUG=1
 
 #################################################
 # Database Setup
@@ -24,6 +25,16 @@ collection = db.baseball
 def index():
     """Return the homepage."""
     return render_template("index.html")
+
+@app.route("/statistics")
+def statistics():
+    """Return the statistics"""
+    return render_template("statistics.html")
+
+@app.route("/salary")
+def salary():
+    """Return the salary."""
+    return render_template("salary.html")
 
 @app.route("/about")
 def about():
@@ -80,4 +91,8 @@ def salary(player):
     return jsonify(stats)
 
 if __name__ == "__main__":
+<<<<<<< HEAD
+    app.run(port=5001, debug=True)
+=======
     app.run(debug=True)
+>>>>>>> 806f861957f38fd0c1c2c1f2e53ff535152fa45a
