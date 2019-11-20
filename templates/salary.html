@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="shortcut icon" href="../static/assets/images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="../static/asset/images/favicon.ico" type="image/x-icon">
-    <title>MLB | Home</title>
+    <link rel="shortcut icon" href="../static/assets/images/favicon.ico"
+      type="image/x-icon">
+    <link rel="icon" href="../static/asset/images/favicon.ico"
+      type="image/x-icon">
+    <title>MLB | Salary Predictions</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../static/css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   </head>
   <body style="margin-bottom:100px">
 
@@ -48,13 +54,11 @@
       </div>
     </nav>
 
- <!-- Title Nav  -->
+    <!-- Title Nav  -->
     <div class="title_header">
-      <h1>MLB Raw Data Analytics</h1>
+      <h1>MLB Machine Learning</h1>
       <h6>
-        Our projection system identifies similar players throughout MLB history
-        and uses them to develop a probabilistic<br/>
-          forecast of what a current MLB player’s future might look like.</h6>
+        Our Salary projection algorithim identifies MLB players current season statistics and forecast an aproximate next season contract might look like.</h6>
         <p class="see-also"><b> More MLB:</b><a href="#"> Our 2019-20 MLB
             predictions - </a><a href="#">Every team’s Elo history.</a></p>
         <p id="date"></p>
@@ -67,8 +71,8 @@
           </br>
           <div>
             <div>
-              <select id="myInput" onchange="optionChanged(this.value)" Style="border-radius: 10px"
-                ></select>
+              <select id="myInput" onchange="optionChanged(this.value)"
+                Style="border-radius: 10px"></select>
             </div>
           </div>
         </div>
@@ -79,8 +83,8 @@
         <div class="col-sm-3">
           <h2>Player</h2>
           <h5>Image:</h5>
-          <div>
-            <img src="" width="225" height="300" id="player_pic">
+          <div border-radius="25%">
+            <img src="" border-radius="25%" width="225" height="300" id="player_pic">
           </div>
           <br>
           <div>
@@ -89,30 +93,54 @@
           </div>
         </div>
         <div class="col-sm-9">
-          <h2>Wins Above Replacement</h2>
-          <h6>Wins Above Replacement (WAR) is an attempt by the
-            sabermetric baseball community to summarize a player’s total
-            contributions to their team in one statistic.</h6>
-          <div class="mlb_analytics" id="player_war">
+          <h2>How much will this player make?</h2>
+          <h6>The following information displays the actual and predicted salary
+            for the chosen MLB player.</h6>
+          <div">
+            <div class="row">
+              <div class="col-md-6"><h2>Current Salary</h2></div>
+              <div class="col-md-6"><h2>Predicted Salary</h2></div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 div_predicted">$400,000</div>
+              <div class="col-md-5 offset-md-1 div_predicted">$1,000,000</div>
+            </div>
+            <div class="row">
+              <div class="col-md-6"><h2>Amount +/-</h2></div>
+              <div class="col-md-6"><h2>Percentage +/-</h2></div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 div_predicted">$600,000</div>
+              <div class="col-md-5 offset-md-1 div_predicted">150%</div>
+            </div>
           </div>
         </div>
-      </div>
-      <div>
-        <div class="container">
-          <div><h2 style="text-align: center;">Batting Average "AVG" </br>
-            Or </br> Pitcher Earn Run Average "ERA"</h2></div>
-      <div class="row table_stats"></div>
+        <div>
+          <div class="container">
+            <div><h2 style="text-align: center;">Salary Predictions</br>"Actuals
+              Vs Predicted"</h2></div>
+          <div class="row"></div>
+          <!-- Image inserted as placeholder. Remove Height and weight. Replace with id="salary_prediction" -->
+          <div class="col-sm"><img
+              src="/static/assets/images/salary_predictions.png" width="1080px"
+              height="350px"></div>
+          <div><h2 style="text-align: center;">Wins Above Replacement "WAR"</h2></div>
+          <div class="row"></div>
+          <div class="col-sm" id="player_war"></div>
+          <div><h2 style="text-align: center;">Batting Average "AVG"</br>Or</br>Pitcher
+          Earn Run Average "ERA"</h2></div>
+      <div class="row"></div>
       <div class="col-sm" id="table_1"></div>
-      <div><h2 style="text-align: center;">On Base + Slugging</h2></div>
-      <div class="row table_stats"></div>
-      <div class="col-sm" id="table_2"></div>
+      <!-- <div><h2 style="text-align: center;">On Base + Slugging</h2></div> -->
+      <!-- <div class="row"></div> -->
+      <!-- <div class="col-sm" id="table_2"></div>
       <div><h2 style="text-align: center;">Homeruns</h2></div>
-      <div class="row table_stats"></div>
-      <div class="col-sm" id="table_3"></div>
+      <div class="row"></div> -->
+      <!-- <div class="col-sm" id="table_3"></div>
       <div><h2 style="text-align: center;">Runs Batted</h2></div>
-      <div class="row table_stats"></div>
+      <div class="row"></div>
       <div class="col-sm" id="table_4"></div>
-      <div></div>
+      <div></div> -->
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>

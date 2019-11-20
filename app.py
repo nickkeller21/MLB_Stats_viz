@@ -11,6 +11,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
+FLASK_DEBUG=1
 
 #################################################
 # Database Setup
@@ -18,12 +19,22 @@ app.config['JSON_SORT_KEYS'] = False
 
 client = MongoClient('mongodb://nick21:Nick21**@ds335678.mlab.com:35678/heroku_s4gpc8qj')
 db = client.heroku_s4gpc8qj
-collection = db.collection
+collection = db.baseball
 
 @app.route("/")
 def index():
     """Return the homepage."""
     return render_template("index.html")
+
+@app.route("/statistics")
+def statistics():
+    """Return the statistics"""
+    return render_template("statistics.html")
+
+@app.route("/salary")
+def salary():
+    """Return the salary."""
+    return render_template("salary.html")
 
 @app.route("/about")
 def about():
@@ -70,4 +81,4 @@ def stats(player):
 
 
 if __name__ == "__main__":
-    app.run(port=5001)
+    app.run(port=5001, debug=True)
