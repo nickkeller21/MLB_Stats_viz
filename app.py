@@ -45,6 +45,7 @@ def about():
 def names():
     """Return a list of player names."""
     names = [i['playerName'] for i in collection.find()]
+    names.sort()
     return jsonify(names)
 
 @app.route("/pic_url/<player>")
@@ -53,6 +54,11 @@ def pic_url(player):
     picture = collection.find({'playerName':player})[0]['imgURL']
     return jsonify(picture)
 
+@app.route("/bio/<player>")
+def bio(player):
+    """Return the bio to fill under the pic"""
+    bio = collection.find({'playerName':player})[0]['Bio']
+    return jsonify(bio)
 
 @app.route("/stats/<player>")
 def stats(player):
@@ -78,7 +84,15 @@ def stats(player):
         stats['RBI'] = [ref['years'][i]['RBI'] for i in years]
         stats['TEAM'] = [ref['years'][i]['TEAM'] for i in years]
     return jsonify(stats)
-
+@app.route("/salary/<player>")
+def salary(player):
+    ref = collection.find({'playerName':player})[0]
+    stats = {ref}
+    return jsonify(stats)
 
 if __name__ == "__main__":
+<<<<<<< HEAD
     app.run(port=5001, debug=True)
+=======
+    app.run(debug=True)
+>>>>>>> 806f861957f38fd0c1c2c1f2e53ff535152fa45a

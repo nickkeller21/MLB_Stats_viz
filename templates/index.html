@@ -14,6 +14,7 @@
   </head>
   <body style="margin-bottom:100px">
 
+<<<<<<< HEAD
     <!-- Header nav bar -->
     <nav class="navbar navbar-expand-lg">
       <a href="/"><img src="../static/assets/images/mlb_logo_svg.svg"
@@ -124,4 +125,77 @@
       <p>Made with ❤ by 4 Astros' Fans @ 2019</p>
     </div>
   </footer>
+=======
+<!-- Title Nav  -->
+<div class="title_header">
+  <h1>MLB Raw Data Analytics</h1> 
+  <h6>
+    Our projection system identifies similar players throughout MLB history and uses them to develop a probabilistic<br/>
+    forecast of what a current MLB player’s future might look like.</h6>
+  <p class="see-also"><b> More MLB:</b><a href="#"> Our 2019-20 MLB predictions - </a><a href="#">Every team’s Elo history.</a></p>
+   <p id="date"></p>
+  </div>
+
+  <div>
+    <div class="container" style="margin-top:30px" id="color_page_background">
+      <div class="row">
+        <div class="col" style="border-color: black">
+          <h2>Stats Viewer</h2>
+
+          <p>Select a Player</p>
+
+          <div class="autocomplete" style="width:300px;">
+            <select id="myInput" onchange="optionChanged(this.value)"></select>
+          </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="container" style="margin-top:30px" id="color_page_background">
+    <div class="row">
+      <div class="col-sm-4">
+        <h2>Player</h2>
+          <h5 id = "player_name">Image:</h5>
+            <div class="mlb_player" id="player_headshot" style="height:320px;width:213px">
+              <img src="" id="player_pic" style="width:100%;height:100%;align-content:center">
+            </div>   
+            
+            <div>
+              <h5 style="margin-top:15px">Bio</h5>
+              <div id="player_bio"></div>
+            </div>
+      </div>
+      <div class="col-sm-8">
+        <h2>Wins Above Replacement</h2>
+        <h6>Wins Above Replacement (WAR) is an attempt by the sabermetric baseball community to summarize a player’s total contributions to their team in one statistic.</h6>
+        <div id="player_war"></div>
+      </div>
+    </div>
+    <div class="row" style="margin-top: 1in;">
+      <div class="col-sm"><div id = "table_1"></div></div>
+          
+      <div class="col-sm"><div id = "table_2"></div></div>
+        </div>
+      <div class="row" style="margin-top: 1in;">
+        <div class="col-sm"><div id = "table_3"></div></div>
+            
+        <div class="col-sm"><div id = "table_4"></div></div>
+          
+      </div>
+  </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="{{ url_for('static', filename='js/app2.js') }}"></script>
+<script type="text/javascript" src = "../static/js/app2.js"></script>
+</body>
+<footer>
+  <div class="footer" style="margin-top:160px">
+    <p>Made with ❤ by 4 Astros' Fans @ 2019</p>
+  </div>
+</footer>
+>>>>>>> 806f861957f38fd0c1c2c1f2e53ff535152fa45a
 </html>

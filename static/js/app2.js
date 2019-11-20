@@ -8,7 +8,23 @@ function getPicture(player) {
   })
 };
 
-
+function getBio(player) {
+  let url =`/bio/${player}`
+  d3.select("#player_name").text(player)
+  let selector = d3.select("#player_bio")
+  selector.text("")
+  d3.json(url).then(data =>{
+    let keys = Object.keys(data)
+    let values = Object.values(data)
+    length = keys.length
+    console.log(length)
+    for (i = 0; i<length; i++) {
+      selector
+        .append("p")
+        .text(keys[i]+": "+ values[i])
+    }
+  })
+}
 function buildCharts(player) {
   let url = `/stats/${player}`
 
@@ -167,6 +183,7 @@ function init() {
     // Use the first player from the list to build the initial plots
     const firstName = names[0];
     getPicture(firstName);
+    getBio(firstName);
     buildCharts(firstName);
   });
 };
@@ -174,6 +191,7 @@ function init() {
 function optionChanged(player) {
   // Fetch new data
   getPicture(player);
+  getBio(player);
   buildCharts(player);
 };
 
