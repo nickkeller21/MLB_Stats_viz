@@ -20,8 +20,9 @@ function getBio(player) {
     console.log(length)
     for (i = 0; i<length; i++) {
       selector
-        .append("p")
+        .append("ul")
         .text(keys[i]+": "+ values[i])
+        .attr("style", "margin:2px;padding:0px")
     }
   })
 }
