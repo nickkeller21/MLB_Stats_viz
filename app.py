@@ -89,6 +89,7 @@ def stats(player):
 def salarystats(player):
     salary ={}
     ref = collection.find_one({'playerName':player})
+    ref["Predicted"]["Percent Difference"]=int((ref['Predicted']["Avg Annual"]-ref['Predicted']["Predicted Salary"])/((ref['Predicted']["Avg Annual"]-ref['Predicted']["Predicted Salary"]/2))*100)
     salary['Salary']=ref['Salary']
     salary['Predicted']=ref['Predicted']
     return jsonify(salary)

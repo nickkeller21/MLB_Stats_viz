@@ -166,8 +166,12 @@ function buildCharts(player) {
 
 function buildSalary(player) {
   let url = `/salarystats/${player}`
+  let current = d3.select("#current")
+  let predicted = d3.select("#predicted")
+  let difference = d3.select("#difference")
+  let percent = d3.select("#percent")
   d3.json(url).then(data =>{
-    console.log(data['Predicted'])
+    console.log(data["Predicted"]["Predicted Salary"])
     let years = Object.keys(data['Salary'])
     let salaries = Object.values(data['Salary'])
     var salary_graph = [{
@@ -190,6 +194,10 @@ function buildSalary(player) {
     }
   };
   Plotly.newPlot('salary_table', salary_graph, salary_layout);
+  current.text("$"+data["Predicted"]["Avg Annual"].toLocaleString())
+  predicted.text("$"+data["Predicted"]["Predicted Salary"].toLocaleString())
+  difference.text("$"+data["Predicted"]["Difference"].toLocaleString())
+  percent.text(data["Predicted"]["Percent Difference"].toLocaleString()+"%")
 
   })
 
