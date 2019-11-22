@@ -223,6 +223,7 @@ function init() {
     getPicture(firstName);
     getBio(firstName);
     buildCharts(firstName);
+    buildSalary(player);
   });
 };
 

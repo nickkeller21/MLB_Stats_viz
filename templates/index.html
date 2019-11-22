@@ -59,7 +59,7 @@
             predictions - </a><a href="#">Every team’s Elo history.</a></p>
         <p id="date"></p>
       </div>
-      <div class="container" style="margin-top:30px">
+    <div class="container" style="margin-top:30px">
         <div class="row">
           <div class="col-sm-12" style="border-color: black">
             <h2 text-align="center">Stats Viewer</h2>
@@ -76,19 +76,19 @@
     </div>
     <div class="container" style="margin-top:30px">
       <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-3" id ="Player_desc">
           <h2>Player</h2>
-          <h5>Image:</h5>
-          <div>
+          <h5 id ="player_name">Image:</h5>
+          <div id="img">
             <img src="" width="225" height="300" id="player_pic">
           </div>
           <br>
-          <div>
+          <div id = "bio">
             <h5>Bio</h5>
             <p id="player_bio">This is where the bio will be!!</p>
           </div>
         </div>
-        <div class="col-sm-9">
+        <div class="col-sm-9" id="war">
           <h2>Wins Above Replacement</h2>
           <h6>Wins Above Replacement (WAR) is an attempt by the
             sabermetric baseball community to summarize a player’s total
@@ -97,22 +97,17 @@
           </div>
         </div>
       </div>
-      <div>
-        <div class="container">
-          <div><h2 style="text-align: center;">Batting Average "AVG" </br>
-            Or </br> Pitcher Earn Run Average "ERA"</h2></div>
-      <div class="row table_stats"></div>
-      <div class="col-sm" id="table_1"></div>
-      <div><h2 style="text-align: center;">On Base + Slugging</h2></div>
-      <div class="row table_stats"></div>
-      <div class="col-sm" id="table_2"></div>
-      <div><h2 style="text-align: center;">Homeruns</h2></div>
-      <div class="row table_stats"></div>
-      <div class="col-sm" id="table_3"></div>
-      <div><h2 style="text-align: center;">Runs Batted</h2></div>
-      <div class="row table_stats"></div>
-      <div class="col-sm" id="table_4"></div>
-      <div></div>
+
+
+
+      <div class="row">
+          <div class="col-sm"><div id="table_1"></div></div>
+          <div class="col-sm"><div id="table_2"></div></div>
+      </div>
+      <div class="row">
+          <div class="col-sm"><div id="table_3"></div></div>
+          <div class="col-sm"><div id="table_4"></div></div>
+      </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
