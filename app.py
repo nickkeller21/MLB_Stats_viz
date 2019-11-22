@@ -84,15 +84,14 @@ def stats(player):
         stats['RBI'] = [ref['years'][i]['RBI'] for i in years]
         stats['TEAM'] = [ref['years'][i]['TEAM'] for i in years]
     return jsonify(stats)
-@app.route("/salary/<player>")
-def salary(player):
-    ref = collection.find({'playerName':player})[0]
-    stats = {ref}
-    return jsonify(stats)
+
+@app.route("/salarystats/<player>")
+def salarystats(player):
+    salary ={}
+    ref = collection.find_one({'playerName':player})
+    salary['Salary']=ref['Salary']
+    salary['Predicted']=ref['Predicted']
+    return jsonify(salary)
 
 if __name__ == "__main__":
-<<<<<<< HEAD
-    app.run(port=5001, debug=True)
-=======
     app.run(debug=True)
->>>>>>> 806f861957f38fd0c1c2c1f2e53ff535152fa45a

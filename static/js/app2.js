@@ -164,7 +164,36 @@ function buildCharts(player) {
       });
   };
 
+function buildSalary(player) {
+  let url = `/salarystats/${player}`
+  d3.json(url).then(data =>{
+    console.log(data['Predicted'])
+    let years = Object.keys(data['Salary'])
+    let salaries = Object.values(data['Salary'])
+    var salary_graph = [{
+      x: years,
+      y: salaries,
+      type: 'line',
+      name: "AVG",
+      line: {
+      color: 'rgb(0, 0, 137)',
+      width: 2
+    }
+    }];
+    
 
+    var salary_layout = {
+    title: "Salaries",
+    xaxis: {
+      title: 'Year',
+      dtick: 1
+    }
+  };
+  Plotly.newPlot('salary_table', salary_graph, salary_layout);
+
+  })
+
+}
 
 function init() {
   // Grab a reference to the dropdown select element
@@ -194,6 +223,12 @@ function optionChanged(player) {
   getPicture(player);
   getBio(player);
   buildCharts(player);
+};
+function optionChangedSalary(player) {
+  // Fetch new data
+  getPicture(player);
+  getBio(player);
+  buildSalary(player);
 };
 
 // Initialize the dashboard

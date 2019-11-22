@@ -71,7 +71,7 @@
           </br>
           <div>
             <div>
-              <select id="myInput" onchange="optionChanged(this.value)"
+              <select id="myInput" onchange="optionChangedSalary(this.value)"
                 Style="border-radius: 10px"></select>
             </div>
           </div>
@@ -115,22 +115,23 @@
             </div>
           </div>
         </div>
-        <div>
-          <div class="container">
-            <div><h2 style="text-align: center;">Salary Predictions</br>"Actuals
+        <div class="row">
+          
+            <div class="row"><h2 style="text-align: center;">Salary Predictions</br>"Actuals
               Vs Predicted"</h2></div>
-          <div class="row"></div>
           <!-- Image inserted as placeholder. Remove Height and weight. Replace with id="salary_prediction" -->
           <div class="col-sm"><img
               src="/static/assets/images/salary_predictions.png" width="1080px"
               height="350px"></div>
-          <div><h2 style="text-align: center;">Wins Above Replacement "WAR"</h2></div>
-          <div class="row"></div>
-          <div class="col-sm" id="player_war"></div>
-          <div><h2 style="text-align: center;">Batting Average "AVG"</br>Or</br>Pitcher
-          Earn Run Average "ERA"</h2></div>
-      <div class="row"></div>
-      <div class="col-sm" id="table_1"></div>
+          <div class = "row">
+            <div class ="col_sm">
+              <h2 style="text-align: center;">Wins Above Replacement "WAR"</h2>
+            </div>
+                        
+          </div>
+          <div class="row"> 
+            <div id = "salary_table"></div>
+          </div>
       <!-- <div><h2 style="text-align: center;">On Base + Slugging</h2></div> -->
       <!-- <div class="row"></div> -->
       <!-- <div class="col-sm" id="table_2"></div>
@@ -141,6 +142,7 @@
       <div class="row"></div>
       <div class="col-sm" id="table_4"></div>
       <div></div> -->
+    </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
