@@ -21,7 +21,7 @@ function getBio(player) {
     for (i = 0; i<length; i++) {
       selector
         .append("ul")
-        .text(keys[i]+": "+ values[i])
+        .text(keys[i]+": "+values[i])
         .attr("style", "margin:2px;padding:0px")
     }
   })

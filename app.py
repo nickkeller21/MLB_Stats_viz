@@ -36,6 +36,16 @@ def salary():
     """Return the salary."""
     return render_template("salary.html")
 
+@app.route("/batter")
+def batter():
+    """Return the batter slider prediction."""
+    return render_template("batter_salary.html")
+
+@app.route("/pitcher")
+def pitcher():
+    """Return the pitcher slider prediction."""
+    return render_template("pitcher_salary.html")
+
 @app.route("/about")
 def about():
     """Return the about."""
