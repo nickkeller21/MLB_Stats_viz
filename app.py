@@ -17,9 +17,9 @@ FLASK_DEBUG=1
 # Database Setup
 #################################################
 
-client = MongoClient('mongodb://nick21:Nick21**@ds335678.mlab.com:35678/heroku_s4gpc8qj')
-db = client.heroku_s4gpc8qj
-collection = db.baseball
+client = MongoClient("mongodb+srv://user:SPEg7T1fnTVwOwMb@cluster0.cy1z5.mongodb.net/test?retryWrites=true&w=majority")
+db = client["test"]
+collection = db["test"]
 
 @app.route("/")
 def index():
